@@ -16,6 +16,9 @@ def main():
   conn,address = sock.accept()
   while True                                                      
         msg = conn.recv(bufsize)
+        if not msg:
+            print '! Disconnected'
+            break
         print(msg)
         conn.send(msg)
   conn.close()
