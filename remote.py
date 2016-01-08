@@ -8,7 +8,7 @@ def main():
   backlog = 10
   bufsize = 4096
 
-#  ser = serial.Serial('/dev/ttyUSB0' , 115200)
+  ser = serial.Serial('/dev/ttyUSB0' , 115200)
 
   sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  
   sock.bind((host, port))
@@ -20,7 +20,13 @@ def main():
             print '! Disconnected'
             break
         print(msg)
-        conn.send(msg)
+        ser.write(msg)
+
+        rep = ser.read(1) #read report from robot via serial
+        if rep
+            conn.send(rep) #send report char to host
+            print(rep) #monitoring report
+        #conn.send(msg)
   conn.close()
 
 if __name__ == '__main__':
