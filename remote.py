@@ -23,7 +23,7 @@ def main():
         ser.write(msg)
 
         rep = ser.read(1) #read report from robot via serial
-        if rep
+        if rep:
             conn.send(rep) #send report char to host
             print(rep) #monitoring report
         #conn.send(msg)
