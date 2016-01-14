@@ -24,22 +24,14 @@ def main():
             break
         print(msg)
         
-        conn.send('[')
-        conn.send(str(commseq))
-        conn.send('] ')
-        conn.send(msg)
-        conn.send('\r\n')
+        conn.send("[" + str(commseq) + "] " + msg + "\r\n" ) #feedback command
         
-        ser.flushInput()
+        ser.flushInput() #clear serial receve buffer 
         ser.write(msg) #send command to robot
         
-        rep = ser.readline() #read report from robot via serial
+        #rep = ser.readline() #read report from robot via serial
         if rep:
-            conn.send('[')
-            conn.send(str(commseq))
-            conn.send('] ')
-            conn.send(rep) #send report char to host
-            conn.send('\r\n')
+            conn.send("[" + str(commseq) + "] " + rep + "\r\n") #send report to host
             print(rep) #monitoring report
         #conn.send(msg)
         commseq += 1
