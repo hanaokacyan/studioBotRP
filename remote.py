@@ -10,13 +10,16 @@ def main():
   bufsize = 4096
   
   commseq = 0
-########################
+########################setup serial
   ser = serial.Serial('/dev/ttyUSB0' , 115200)
 ########################
   sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  
   sock.bind((host, port))
   sock.listen(backlog)
   conn,address = sock.accept()
+  
+  comm.send("+++++ MARS ROVER CONSOLE +++++\r\n")
+  
   while True:                                                      
         msg = conn.recv(bufsize)
         if not msg:
