@@ -1,6 +1,7 @@
 #!/usr/bin/env python  
 import socket
 import serial
+import time
 
 def main():
   host = '192.168.1.53'
@@ -22,13 +23,16 @@ def main():
             print '! Disconnected'
             break
         print(msg)
-        ser.write(msg)
+        
         conn.send('[')
         conn.send(str(commseq))
         conn.send('] ')
         conn.send(msg)
         conn.send('\r\n')
-
+        
+        reset_input_buffer()
+        ser.write(msg) #send command to robot
+        
         rep = ser.readline() #read report from robot via serial
         if rep:
             conn.send('[')
