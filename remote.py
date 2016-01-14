@@ -30,7 +30,7 @@ def main():
         conn.send(msg)
         conn.send('\r\n')
         
-        reset_input_buffer()
+        ser.reset_input_buffer()
         ser.write(msg) #send command to robot
         
         rep = ser.readline() #read report from robot via serial
