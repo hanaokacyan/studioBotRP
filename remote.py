@@ -4,12 +4,11 @@ import serial
 import time
 
 def main():
-  host = '192.168.1.53'
+  host = '0.0.0.0'
   port = 4000
   backlog = 10
   bufsize = 4096
-  
-  commseq = 0
+  commseq = 0 #command sequence
 ########################setup serial
   ser = serial.Serial('/dev/ttyUSB0' , 115200)
 ########################
@@ -18,7 +17,7 @@ def main():
   sock.listen(backlog)
   conn,address = sock.accept()
   
-  conn.send("+++++ MARS ROVER CONSOLE +++++\r\n")
+  conn.send("+++++ STUDIOBOT MARS ROVER CONSOLE +++++\r\n")
   
   while True:                                                      
         msg = conn.recv(bufsize)
@@ -26,19 +25,17 @@ def main():
             print '! Disconnected'
             break
         print(msg)
-        
         conn.send("[" + str(commseq) + "] " + msg + "\r\n" ) #feedback command
-        
         ser.flushInput() #clear serial receve buffer 
         ser.write(msg) #send command to robot
         
         #rep = ser.readline() #read report from robot via serial
-        rep = "Dummy Data"
+        rep = "dummy data"
         if rep:
             conn.send("[" + str(commseq) + "] " + rep + "\r\n") #send report to host
             print(rep) #monitoring report
-        #conn.send(msg)
-        commseq += 1
+
+        commseq += 1 #incriment command sequence
   conn.close()
 
 if __name__ == '__main__':
