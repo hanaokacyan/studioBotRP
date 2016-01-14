@@ -7,9 +7,9 @@ def main():
   port = 4000
   backlog = 10
   bufsize = 4096
-#
+########################
   ser = serial.Serial('/dev/ttyUSB0' , 115200)
-#
+########################
   sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  
   sock.bind((host, port))
   sock.listen(backlog)
