@@ -14,7 +14,7 @@ def main():
   sock.bind((host, port))
   sock.listen(backlog)
   conn,address = sock.accept()
-  while True                                                      
+  while True:                                                      
         msg = conn.recv(bufsize)
         if not msg:
             print '! Disconnected'
