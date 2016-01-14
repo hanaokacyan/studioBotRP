@@ -12,12 +12,13 @@ def main():
 ########################setup serial
   ser = serial.Serial('/dev/ttyUSB0' , 115200)
 ########################
+  print("waiting for connection...\r\n") #waiting messege to pyton terminal
   sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  
   sock.bind((host, port))
   sock.listen(backlog)
   conn,address = sock.accept()
   
-  print("Starting control-------\r\n") #startup message to pyton control
+  print("Starting control\r\n") #startup message to pyton terminal
   conn.send("+++++ STUDIOBOT MARS ROVER CONSOLE +++++\r\n") #startup messege to robot console
   
   while True:                                                      
