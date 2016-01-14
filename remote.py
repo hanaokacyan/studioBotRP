@@ -30,6 +30,7 @@ def main():
         ser.write(msg) #send command to robot
         
         #rep = ser.readline() #read report from robot via serial
+        rep = "Dummy Data"
         if rep:
             conn.send("[" + str(commseq) + "] " + rep + "\r\n") #send report to host
             print(rep) #monitoring report
