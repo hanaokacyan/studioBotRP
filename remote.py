@@ -24,7 +24,7 @@ def main():
         print(msg)
         ser.write(msg)
         conn.send('[')
-        conn.send(commseq)
+        conn.send(str(commseq))
         conn.send('] ')
         conn.send(msg)
         conn.send('\r\n')
@@ -32,7 +32,7 @@ def main():
         rep = ser.readline() #read report from robot via serial
         if rep:
             conn.send('[')
-            conn.send(commseq)
+            conn.send(str(commseq))
             conn.send('] ')
             conn.send(rep) #send report char to host
             conn.send('\r\n')
