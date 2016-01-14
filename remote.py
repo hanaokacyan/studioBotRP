@@ -25,6 +25,7 @@ def main():
         rep = ser.readline() #read report from robot via serial
         if rep:
             conn.send(rep) #send report char to host
+            conn.send('\r')
             print(rep) #monitoring report
         #conn.send(msg)
   conn.close()
