@@ -17,7 +17,8 @@ def main():
   sock.listen(backlog)
   conn,address = sock.accept()
   
-  conn.send("+++++ STUDIOBOT MARS ROVER CONSOLE +++++\r\n")
+  print("Starting control-------\r\n") #startup message to pyton control
+  conn.send("+++++ STUDIOBOT MARS ROVER CONSOLE +++++\r\n") #startup messege to robot console
   
   while True:                                                      
         msg = conn.recv(bufsize)
