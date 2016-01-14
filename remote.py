@@ -18,7 +18,7 @@ def main():
   sock.listen(backlog)
   conn,address = sock.accept()
   
-  comm.send("+++++ MARS ROVER CONSOLE +++++\r\n")
+  conn.send("+++++ MARS ROVER CONSOLE +++++\r\n")
   
   while True:                                                      
         msg = conn.recv(bufsize)
