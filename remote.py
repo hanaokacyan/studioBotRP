@@ -7,6 +7,8 @@ def main():
   port = 4000
   backlog = 10
   bufsize = 4096
+  
+  commseq = 0
 ########################
   ser = serial.Serial('/dev/ttyUSB0' , 115200)
 ########################
@@ -21,13 +23,22 @@ def main():
             break
         print(msg)
         ser.write(msg)
+        conn.send('[')
+        conn.send(commseq)
+        conn.send('] ')
+        conn.send(msg)
+        conn.send('\r\n')
 
         rep = ser.readline() #read report from robot via serial
         if rep:
+            conn.send('[')
+            conn.send(commseq)
+            conn.send('] ')
             conn.send(rep) #send report char to host
-            conn.send('\r')
+            conn.send('\r\n')
             print(rep) #monitoring report
         #conn.send(msg)
+        commseq += 1
   conn.close()
 
 if __name__ == '__main__':
