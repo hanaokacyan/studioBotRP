@@ -5,7 +5,7 @@ import time
 # Open serial port
 ser = serial.Serial('/dev/ttyUSB0' , 115200)
 
-for i in range(1) # loop count in range(n)
+for i in range(1): # loop count in range(n)
     # Start sequence
     # Step 1
     print("forward")
