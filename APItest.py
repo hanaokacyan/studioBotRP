@@ -18,12 +18,13 @@ def sensorALL():
   return(l,f,r)
 
 def main():
-  ser = serial.Serial('/dev/ttyUSB0' , 115200)
   global ser
+  ser = serial.Serial('/dev/ttyUSB0' , 115200)
+  
   while True:
     l,f,r = sensorALL()
     print("SENSOR  %d : %d : %d" % (l,f,r))
-    time.sleep(300)
+    time.sleep(0.3)
   
 
 if __name__ == '__main__':
