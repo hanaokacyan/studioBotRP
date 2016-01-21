@@ -29,7 +29,7 @@ def main():
   motor(1,20,1,20)
   time.sleep(1)
   brake(500)
-  moror(2,20,2,20)
+  motor(2,20,2,20)
   time.sleep(1)
   brake(500)
   print("end fo program")
