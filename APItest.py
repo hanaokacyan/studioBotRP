@@ -21,7 +21,9 @@ def main():
   ser = serial.Serial('/dev/ttyUSB0' , 115200)
   
   while True:
-  l,f,r = sensorALL()
+    l,f,r = sensorALL()
+    print("SENSOR  %d : %d : %d" % (l,f,r))
+    time.sleep(300)
   
 
 if __name__ == '__main__':
