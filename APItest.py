@@ -37,7 +37,7 @@ def main():
   while True:
     l,f,r = sensorALL()
     #print("SENSOR  %d : %d : %d" % (l,f,r))
-    print("SENSOR  " + chr(l) + " : " + chr(f) + " : " + chr(r))
+    print("SENSOR  " + str(l) + " : " + str(f) + " : " + str(r))
     time.sleep(0.3)
   
 
