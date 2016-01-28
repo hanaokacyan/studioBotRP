@@ -8,7 +8,7 @@ def main():
   port = 4000
   backlog = 10
   bufsize = 4096
-  commseq = 0 #command sequence
+  commseq = 0 #command sequence 
 ########################setup serial
   ser = serial.Serial('/dev/ttyUSB0' , 115200)
 ########################
