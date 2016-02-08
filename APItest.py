@@ -24,7 +24,7 @@ def sensorALL():
 
 def main():
   global ser
-  ser = serial.Serial('/dev/ttyUSB0' , 115200)
+  ser = serial.Serial('/dev/ttyUSB0' , 115200 , timeout = 0.5)
   
   #motor(1,20,1,20)
   #time.sleep(1)
