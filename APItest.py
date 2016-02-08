@@ -3,23 +3,21 @@ import serial
 import time
 
 def motor(Rdir,Rpwm,Ldir,Lpwm):
-  ser.flushInput() # clear serial receve buffer 
+  #ser.flushInput() # clear serial receve buffer 
   ser.write("m " + str(Rdir) + " " + str(Rpwm) + " "+ str(Ldir) + " " + str(Lpwm) + "\r")  #send command to robot
   dummy = ser.readline() # wait for robot response
   
 def brake(dur):
-  ser.flushInput() # clear serial receve buffer
+  #ser.flushInput() # clear serial receve buffer
   ser.write("b " + str(dur) + "\r")
   dummy = ser.readline() # wait for robot response
 
 def sensorALL():
-  ser.flushInput() # clear serial receve buffer 
+  #ser.flushInput() # clear serial receve buffer 
   ser.write("1\r")
   l = int(ser.readline()) # read Left sensor
-  ser.flushInput() # clear serial receve buffer
   ser.write("2\r")
   f = int(ser.readline()) # read Front sensor
-  ser.flushInput() # clear serial receve buffer
   ser.write("3\r")
   r = int(ser.readline()) # read Return sensor
   return(l,f,r)
