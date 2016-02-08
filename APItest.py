@@ -16,8 +16,10 @@ def sensorALL():
   ser.flushInput() # clear serial receve buffer 
   ser.write("1\r")
   l = int(ser.readline()) # read Left sensor
+  ser.flushInput() # clear serial receve buffer
   ser.write("2\r")
   f = int(ser.readline()) # read Front sensor
+  ser.flushInput() # clear serial receve buffer
   ser.write("3\r")
   r = int(ser.readline()) # read Return sensor
   return(l,f,r)
