@@ -25,6 +25,6 @@ for i in range(2): # loop count in range(n)
     ser.write("m 3 32 3 32\r") # !!!Replace by your command
     time.sleep(0.5) # dulation 0.5sec
     
-    ser.close()
 
+ser.close()
 # End of program
