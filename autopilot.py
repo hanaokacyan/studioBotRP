@@ -4,6 +4,7 @@ import time
 
 # Open serial port
 ser = serial.Serial('/dev/ttyUSB0' , 115200)
+time.sleep(0.5)
 
 for i in range(2): # loop count in range(n)
     # Start sequence
@@ -23,5 +24,7 @@ for i in range(2): # loop count in range(n)
     print("brake")
     ser.write("m 3 32 3 32\r") # !!!Replace by your command
     time.sleep(0.5) # dulation 0.5sec
+    
+    ser.close()
 
 # End of program
