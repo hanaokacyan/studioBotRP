@@ -13,6 +13,7 @@ def main():
   commseq = 0 #command sequence 
   # setup serial
   ser = serial.Serial('/dev/ttyUSB0' , 115200 , timeout = 30000)
+  ser.write("\r")
 
   print("waiting for connection...\r\n") # waiting messege to pyton terminal
   ##################################################################### socket connection
