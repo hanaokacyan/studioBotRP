@@ -14,6 +14,7 @@ def main():
   # setup serial
   ser = serial.Serial('/dev/ttyUSB0' , 115200 , timeout = 30000)
   ser.write("\r")
+  time.sleep(0.5)
 
   print("waiting for connection...\r\n") # waiting messege to pyton terminal
   ##################################################################### socket connection
@@ -26,7 +27,7 @@ def main():
   print("Starting control\r\n") #startup message to pyton terminal
   
   ################################################################### Sending to socket
-  conn.send("+++++ STUDIOBOT MARS ROVER CONSOLE +++++\r\n") # startup messege to robot console
+  conn.send("+++++ STUDIOBOT Wi-Fi ROVER CONSOLE +++++\r\n") # startup messege to robot console
   #------------------------------------------------------------------------------------
   
   while True:   
