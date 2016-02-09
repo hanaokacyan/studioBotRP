@@ -40,8 +40,8 @@ def main():
   #print("end fo program")
   
   while True:
-    l,f,r = sensorALL()
-    print("SENSOR  " + str(l) + " : " + str(f) + " : " + str(r))
+    ml,mf,mr = sensorALL()
+    print("SENSOR  " + str(ml) + " : " + str(mf) + " : " + str(mr))
     time.sleep(0.3)
   
 
