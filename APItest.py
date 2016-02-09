@@ -26,6 +26,10 @@ def main():
   global ser
   ser = serial.Serial('/dev/ttyUSB0' , 115200 , timeout = 0.5)
   
+  #dummy data send(To activate USBserial device)
+  ser.write("?\r")
+  time.sleep(0.1)
+  
   #motor(1,20,1,20)
   #time.sleep(1)
   #brake(500)
